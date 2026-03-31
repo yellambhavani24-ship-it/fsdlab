@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<script>
+function validate(){
+  let f=document.f;
+  if(f.fname.value==""||f.lname.value==""||f.email.value==""||f.user.value==""||f.pass.value==""){
+    alert("Fill all fields");
+    return false;
+  }
+  if(f.pass.value.length<6){
+    alert("Password min 6");
+    return false;
+  }
+  return true;
+}
+</script>
+</head>
+
+<body>
+<h2>Registration</h2>
+<form name="f" action="register-success.html" onsubmit="return validate()">
+First Name: <input type="text" name="fname"><br>
+Last Name: <input type="text" name="lname"><br>
+Email: <input type="text" name="email"><br>
+Username: <input type="text" name="user"><br>
+Password: <input type="password" name="pass"><br>
+Gender: 
+<input type="radio" name="g">Male
+<input type="radio" name="g">Female<br><br>
+<button type="submit">Register</button>
+<a href="login.html">Login</a>
+</form>
+</body>
+</html>
