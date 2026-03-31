@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Profile</title> 
+  <link rel="stylesheet" href="style.css"> 
+</head> 
+<body> 
+  <div class="container"> 
+    <h2>Profile</h2> 
+    <div id="profileData"></div> 
+    <button onclick="logout()">Logout</button> 
+  </div> 
+ 
+<script> 
+async function loadProfile() { 
+  const token = localStorage.getItem("token"); 
+ 
+  if (!token) { 
+    window.location.href = "login.html"; 
+    return; 
+  } 
+ 
+  const res = await fetch("/profile-data", { 
+    headers: { 
+      "Authorization": "Bearer " + token 
+    } 
+  }); 
+ 
+  if (!res.ok) { 
+    alert("Session expired. Please login again."); 
+    localStorage.removeItem("token"); 
+    window.location.href = "login.html"; 
+    return; 
+  } 
+ 
+  const data = await res.json(); 
+  document.getElementById("profileData").innerHTML = 
+    `<p><strong>Username:</strong> ${data.user.username}</p>`; 
+} 
+ 
+function logout() { 
+  localStorage.removeItem("token"); 
+  window.location.href = "login.html"; 
+} 
+ 
+loadProfile(); 
+</script> 
+</body> 
+</html>
