@@ -1,0 +1,8 @@
+npm install -g npx 
+npm install -g create-react-app 
+npx create-react-app my-react-app 
+cd my-react-app 
+code . 
+npm start 
+npm install react-router-dom 
+npm install react-router-dom bootstrap react-bootstrap

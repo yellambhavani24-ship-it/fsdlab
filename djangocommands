@@ -1,0 +1,14 @@
+py --version 
+py -m venv env 
+dir 
+.\env\Scripts\activate 
+pip list 
+pip  install django 
+django-admin --version 
+django-admin startproject my_week12 
+cd my_week12 
+py manage.py startapp studentapp 
+code . 
+py manage.py makemigrations 
+py manage.py migrate 
+code . 
